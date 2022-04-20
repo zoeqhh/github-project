@@ -1,2 +1,4 @@
-import SearchAuthor from "./SearchAuthor";
-export default SearchAuthor
+import Detail from "./Detail";
+import DashBoard from './DashBoard'
+
+export  {Detail,DashBoard}
