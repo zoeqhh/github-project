@@ -1,2 +1,3 @@
-import getUserInfo from './base'
-export default getUserInfo 
+import {getUserInfo,getRepoRoots} from './base'
+
+export {getUserInfo,getRepoRoots} 

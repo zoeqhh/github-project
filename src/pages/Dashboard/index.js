@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import getUserInfo from '../../services'
+import { getUserInfo,getRepoRoots } from '../../services'
 import { Layout, Menu, Input, Space } from 'antd';
 import './index.css'
 import {
@@ -9,7 +9,7 @@ import {
   Link,
   withRouter
 } from "react-router-dom";
-import {StoreList} from '../../components'
+import {StoreList,MyHeader} from '../../components'
 
 const { Search } = Input;
 const { Header, Content, Footer, Sider } = Layout;
@@ -33,10 +33,10 @@ function DashBoard(props) {
     if (username !==''){
     getUserInfo(username)
       .then((res)=>{
-        console.log(res);
+        // console.log(res);
         // 将返回的数据赋值给StoreArray 
         if (res.status === 200){
-          console.log(res.data,typeof res.data);
+          // console.log(res.data,typeof res.data);
           setStoreArray([...res.data])
         }
       })
@@ -51,22 +51,17 @@ function DashBoard(props) {
   return (
     <div>
       <Layout>
-        <Header className="header">
-          <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            <Menu.Item key="1">查看用户仓库</Menu.Item>
-          </Menu>
-        </Header>
+        {/* <MyHeader></MyHeader> */}
         <Content style={{ padding: '0 50px' }}>
           <Space direction="vertical">
-              <Search 
-                defaultValue=''
-                onChange={handelChange}
-                className='search'  
-                placeholder="input search text" 
-                onSearch={serachUser} 
-                enterButton 
-              />
+            <Search 
+              defaultValue=''
+              onChange={handelChange}
+              className='search'  
+              placeholder="input search text" 
+              onSearch={serachUser} 
+              enterButton 
+            />
           </Space>
         <StoreList username={username} StoreArray={StoreArray}></StoreList>  
         </Content>
@@ -74,4 +69,5 @@ function DashBoard(props) {
     </div>
   )
 }
+
 export default withRouter(DashBoard)

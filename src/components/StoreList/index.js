@@ -9,14 +9,15 @@ function StoreList(props) {
   const {StoreArray,username}=props
   // 点击查看特定store的详情
   const getdetails=(item)=>{
-    // console.log(props)
+    // console.log(item)
     // 获得仓库信息 
     axios.get(`https://api.github.com/repos/${item.full_name}/contents`)
     .then((res)=>{
-      // console.log(res.data);
-      props.history.push({pathname:'/detail',state:{storeDetailArray:res.data}})
+      console.log(res.data,typeof res.data);
+      props.history.push({pathname:'/detail',state:{storeArray:res.data,storeName:item.name}})
     })
   }
+
   if (StoreArray.length > 0) {
     return (
       <Content style={{ padding: '0 24px', minHeight: 280 }}>
@@ -30,6 +31,7 @@ function StoreList(props) {
       </Content> 
     )
   }
+
   return (
     <Content style={{ padding: '0 24px', minHeight: 280 }}>
       <div>暂时没有仓库</div>

@@ -8,6 +8,6 @@ const ajax=axios.create({
 // 获得用户信息
 const getUserInfo=(username)=>ajax.get(`/users/${username}/repos`)
 // 获得用户repo的根目录
-const getRepoRoots=(username)=>ajax.get(`/repos/solomonxie/gists/contents`)
+const getRepoRoots=(storeName)=>ajax.get(`/repos/${storeName}/contents`)
 
-export default getUserInfo
+export  {getUserInfo,getRepoRoots}
