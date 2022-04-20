@@ -35,7 +35,7 @@ function DashBoard(props) {
       .then((res)=>{
         console.log(res);
         // 将返回的数据赋值给StoreArray 
-        if (res.status===200){
+        if (res.status === 200){
           console.log(res.data,typeof res.data);
           setStoreArray([...res.data])
         }
