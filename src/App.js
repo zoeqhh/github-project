@@ -1,5 +1,5 @@
 import {Switch,Route,Redirect} from 'react-router-dom'
-import {DashBoard,Detail} from './pages'
+// import {DashBoard,Detail} from './pages'
 import {MyHeader} from './components'
 import routes from './routers'
 
