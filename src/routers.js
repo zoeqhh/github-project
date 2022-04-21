@@ -7,9 +7,9 @@ const routes=[
     title: 'Dashboard',
   },
   {
-    path:'/detail',
+    path:'/detail/:store_fullName',
     component:Detail,
-     title:'Detail'
+    title:'Detail'
   },
 ]
 

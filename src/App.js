@@ -7,9 +7,7 @@ function App(props) {
   return (
     <div className="App">
       <MyHeader></MyHeader>
-      <Switch style={{width: '80%', height: '100%', margin:'10px auto'}}>
-        {/* <Route path="/dashboard" exact component={ DashBoard } />
-        <Route path="/detail" exact component={ Detail } /> */}
+      <Switch>
         {
           routes.map((route) => {
             const C = route.component

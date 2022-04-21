@@ -1,4 +1,4 @@
 import Detail from "./Detail";
-import DashBoard from './DashBoard'
+import DashBoard from './Dashboard/index'
 
 export  {Detail,DashBoard}

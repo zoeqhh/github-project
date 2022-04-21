@@ -2,12 +2,11 @@ import {REQUESTUSERSTORE_SUCCESS,REQUESTSTOREDETAIL_SUCCESS} from './actionType'
 import {getUserStore,getStoreDetaiMsg} from '../../services'
 import store from '../store'
 
-// 定义action 返回 {type:xxx, msg}  
 export const requestuserStoreSuccess=(username,storeArray)=>{
   // 定义请求成功状态 接受传入的参数并存入store
   console.log('请求',storeArray);
   return (dispatch)=>{
-    store.dispatch({
+    dispatch({
       type:REQUESTUSERSTORE_SUCCESS,
       username,
       storeArray
@@ -28,13 +27,13 @@ export const requestStoreDetailSuccess=(storeDetailArray)=>{
 // 定义获得仓库列表的行为
 export const requestuserStoreAction=(username)=>{
   return (dispatch)=>{
-    // console.log('action中的',username.username);
     // 处理 请求仓库信息的请求
     getUserStore(username.username)
       .then((res)=>{
         // 请求成功派发请求成功的action 并把用户名的参数传进去
-        console.log(res.data);
-        dispatch(requestuserStoreSuccess(username.username,res.data))
+        if (res.status ===200) {
+          dispatch(requestuserStoreSuccess(username.username,res.data))
+        }
       })
       .catch(err=>{})
       .finally(() => {})

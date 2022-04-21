@@ -9,7 +9,7 @@ const initialState ={
 }
 
 // 处理store中用户的数据  一个函数 接收初始state和action       处理状态
-export default (state=initialState,action) =>{
+const user= (state=initialState,action) =>{
   // 匹配action 进行处理
   switch (action.type){
     case REQUESTUSERSTORE_SUCCESS:
@@ -30,3 +30,5 @@ export default (state=initialState,action) =>{
       return state
   }
 }
+
+export default user
