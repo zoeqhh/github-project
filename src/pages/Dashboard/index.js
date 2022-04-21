@@ -19,23 +19,24 @@ const { Header, Content, Footer, Sider } = Layout;
 const style = { background: '#0092ff', padding: '8px 0' };
 
 function DashBoard(props) {
-  console.log(props);
-  // console.log(props)
+  // console.log(props.requestuserStoreAction)
   // 函数式组件中是用hook调用state  初始值  userState
   // 数据和修改数据的function
-  // const [username,setUsername]=useState('')
-  // const [StoreArray,setStoreArray]=useState([])
+  // const [username,setUsername]=useState(props.username)
+  // const [StoreArray,setStoreArray]=useState(props.storeArray)
   // 获得输入框的value值
   const handelChange=(e)=>{
     props.requestuserStoreAction({
-      // 将输入的值传给store 并修改
-      username: e.target.value
+      username:e.target.value
     })
+    // console.log(props.requestuserStoreAction());
   }
+
   // 发送请求获得用户信息
-  const serachUser=(username)=>{
-    // console.log(username);
-    if (username !==''){
+  const serachUser=()=>{
+    console.log(props.username);
+    if (props.username !==''){
+      console.log('搜索',props.username);
       requestuserStoreAction(props.username)
     }
     else alert('请输入user名')
