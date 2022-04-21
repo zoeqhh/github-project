@@ -3,9 +3,10 @@ import { List } from 'antd';
 import {connect} from 'react-redux'
 import {requestStoreDetailAction} from '../../store/actions/user'
 import './index.css'
+import {withRouter} from  'react-router-dom'
 
 function Detail(props) {
-  console.log(props);
+  // console.log('详情中',props);
   return (
     <>
       <div className='detailStore'>
@@ -17,7 +18,7 @@ function Detail(props) {
               <List.Item.Meta
                 title={<span>{item.name}</span>}
               />
-              <div>{item.type}</div>
+              <div><span style={{margin: '20px'}}>文件类型</span>{item.type}</div>
             </List.Item>
           )}
         />
@@ -27,4 +28,4 @@ function Detail(props) {
 }
 
 // @ts-ignore
-export default connect((state)=>({...state.user}),{requestStoreDetailAction})(Detail)
+export default connect((state)=>({...state.user}),{requestStoreDetailAction})(withRouter(Detail))

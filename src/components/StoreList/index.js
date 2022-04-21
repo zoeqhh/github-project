@@ -1,6 +1,6 @@
 // 仓库列表组件
 import React from 'react'
-import { List,Layout, Button, PageHeader  } from 'antd'
+import { List,Layout, Button  } from 'antd'
 import {connect} from 'react-redux'
 import {requestStoreDetailAction} from '../../store/actions/user'
 
@@ -19,15 +19,9 @@ function StoreList(props) {
   if (props.storeArray.length > 0) {
     return (
       <Content style={{ padding: '0 50px', minHeight: 280 }}>
-        <PageHeader
-          className="site-page-header"
-          onBack={() =>{}}
-          title={props.username}
-          subTitle="返回首页"
-        />
         <List
           size="small"
-          header={<div style={{color: 'blue'}}>仓库列表</div>}
+          header={<div style={{color: 'blue'}}>{props.username}的仓库列表</div>}
           bordered
           dataSource={props.storeArray}
           renderItem={
