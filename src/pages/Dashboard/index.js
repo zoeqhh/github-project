@@ -1,5 +1,8 @@
 import React ,{useState} from 'react'
-import { getUserStore,getStoreDetaiMsg } from '../../services'
+// import { getUserStore,getStoreDetaiMsg } from '../../services'
+import {connect} from 'react-redux'
+import {requestuserStoreAction} from '../../store/actions/user'
+
 import { Layout, Menu, Input, Space } from 'antd';
 import './index.css'
 import {
@@ -16,33 +19,24 @@ const { Header, Content, Footer, Sider } = Layout;
 const style = { background: '#0092ff', padding: '8px 0' };
 
 function DashBoard(props) {
+  console.log(props);
   // console.log(props)
   // 函数式组件中是用hook调用state  初始值  userState
   // 数据和修改数据的function
-  const [username,setUsername]=useState('')
-  const [StoreArray,setStoreArray]=useState([])
+  // const [username,setUsername]=useState('')
+  // const [StoreArray,setStoreArray]=useState([])
   // 获得输入框的value值
   const handelChange=(e)=>{
-    setUsername({
-      username:e.target.value
+    props.requestuserStoreAction({
+      // 将输入的值传给store 并修改
+      username: e.target.value
     })
   }
   // 发送请求获得用户信息
   const serachUser=(username)=>{
     // console.log(username);
     if (username !==''){
-      getUserStore(username)
-      .then((res)=>{
-        // console.log(res);
-        // 将返回的数据赋值给StoreArray 
-        if (res.status === 200){
-          // console.log(res.data,typeof res.data);
-          setStoreArray([...res.data])
-        }
-      })
-      .catch((err)=>{
-        console.error(err);
-      })
+      requestuserStoreAction(props.username)
     }
     else alert('请输入user名')
   }
@@ -63,11 +57,11 @@ function DashBoard(props) {
               enterButton 
             />
           </Space>
-        <StoreList username={username} StoreArray={StoreArray}></StoreList>  
+        <StoreList username={props.username} StoreArray={props.StoreArray}></StoreList>  
         </Content>
       </Layout>
     </div>
   )
 }
 
-export default withRouter(DashBoard)
+export default connect((state)=>({...state.user}), {requestuserStoreAction})(withRouter(DashBoard))
