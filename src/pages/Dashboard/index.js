@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import { getUserInfo,getRepoRoots } from '../../services'
+import { getUserStore,getStoreDetaiMsg } from '../../services'
 import { Layout, Menu, Input, Space } from 'antd';
 import './index.css'
 import {
@@ -31,7 +31,7 @@ function DashBoard(props) {
   const serachUser=(username)=>{
     // console.log(username);
     if (username !==''){
-    getUserInfo(username)
+      getUserStore(username)
       .then((res)=>{
         // console.log(res);
         // 将返回的数据赋值给StoreArray 

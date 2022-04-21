@@ -1,3 +1,3 @@
-import {getUserInfo,getRepoRoots} from './base'
+import {getUserStore,getStoreDetaiMsg} from './base'
 
-export {getUserInfo,getRepoRoots} 
+export {getUserStore,getStoreDetaiMsg} 
