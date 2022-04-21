@@ -1,4 +1,4 @@
-import Detail from "./Detail";
+import Detail from './Detail'
 import DashBoard from './Dashboard/index'
 
-export  {Detail,DashBoard}
+export { Detail, DashBoard }

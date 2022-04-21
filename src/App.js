@@ -1,15 +1,16 @@
-import {Switch,Route,Redirect} from 'react-router-dom'
-import {DashBoard,Detail} from './pages'
-import {MyHeader} from './components'
+import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { DashBoard, Detail } from './pages'
+import { MyHeader } from './components'
 // import routes from './routers'
 
-function App(props) {
+function App() {
   return (
     <div className="App">
-      <MyHeader></MyHeader>
+      <MyHeader />
       <Switch>
-        <Route path='/dashboard' render={()=>(<DashBoard/>)} />
-        <Route path='/detail/:store_fullName' render={()=>(<Detail/>)} />
+        <Route path="/dashboard" render={() => (<DashBoard />)} />
+        <Route path="/detail/:store_fullName" render={() => (<Detail />)} />
         {/* {
           routes.map((route) => {
             const C = route.component
@@ -28,7 +29,7 @@ function App(props) {
       </Switch>
       <Redirect to="/dashboard" from="/" />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,3 +1,3 @@
-import {getUserStore,getStoreDetaiMsg} from './base'
+import { getUserStore, getStoreDetaiMsg } from './base'
 
-export {getUserStore,getStoreDetaiMsg} 
+export { getUserStore, getStoreDetaiMsg }
