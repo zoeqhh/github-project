@@ -1,14 +1,22 @@
-import { DashBoard, Detail } from './pages'
+import { DashBoard, Detail, Login } from './pages'
 
 const routes = [{
   path: '/dashboard:store',
-  component: DashBoard,
   title: 'Dashboard',
+  component: DashBoard,
+  isLogin: true,
 },
 {
   path: '/detail/:store_fullName',
-  component: Detail,
   title: 'Detail',
+  component: Detail,
+  isLogin: true,
+},
+{
+  path: '/login',
+  title: 'Login',
+  component: Login,
+  isLogin: false,
 },
 ]
 

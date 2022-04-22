@@ -32,7 +32,6 @@ function Detail(props) {
 }
 
 export default connect(
-  // @ts-ignore
   (state) => ({ ...state.user }),
   { requestStoreDetailAction },
 )(withRouter(Detail))
