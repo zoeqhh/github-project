@@ -3,10 +3,10 @@ import { List } from 'antd'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { requestStoreDetailAction } from '../../store/actions/user'
+
 import './index.css'
 
 function Detail(props) {
-  // console.log('详情中',props);
   return (
     <div className="detailStore">
       <p>
@@ -32,6 +32,6 @@ function Detail(props) {
 }
 
 export default connect(
-  (state) => ({ ...state.user }),
+  (state) => ({ ...state.user, ...state.global }),
   { requestStoreDetailAction },
 )(withRouter(Detail))

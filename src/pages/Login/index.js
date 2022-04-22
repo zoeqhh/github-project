@@ -3,11 +3,15 @@ import {
   Form, Input, Button, Checkbox,
 } from 'antd'
 import { useHistory } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { loginSuccess } from '../../store/actions/global'
 import './index.css'
 
-export default function Login() {
+function Login(props) {
   const history = useHistory()
   const login = () => {
+    // 同步处理 派发登录成功action，匹配其reducer，进而改变isLogin的值
+    props.loginSuccess(true)
     history.push('/dashboard')
   }
   return (
@@ -50,3 +54,4 @@ export default function Login() {
     </div>
   )
 }
+export default connect((state) => ({ ...state.global }), { loginSuccess })(Login)

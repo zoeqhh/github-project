@@ -27,7 +27,6 @@ function DashBoard(props) {
   const serachUser = () => {
     // console.log(props.username)
     if (props.username !== '') {
-      // console.log('搜索', props.username)
       requestuserStoreAction(props.username)
     } else alert('请输入user名')
   }

@@ -48,5 +48,4 @@ function StoreList(props) {
   )
 }
 
-// @ts-ignore
 export default connect((state) => ({ ...state.user }), { requestStoreDetailAction })(withRouter(StoreList))

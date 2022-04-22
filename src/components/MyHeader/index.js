@@ -1,17 +1,20 @@
 import React from 'react'
 import { Menu, Layout, Button } from 'antd'
-import './index.css'
 import { useHistory } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { loginSuccess } from '../../store/actions/global'
+import './index.css'
 
 const { Header } = Layout
 
-export default function MyHeader(props) {
+function MyHeader(props) {
   // console.log(props.isLogin)
   const history = useHistory()
   const sightOut = () => {
+    props.loginSuccess(false)
     history.push('/login')
   }
-  if (props.isLogin === 'false') {
+  if (props.isLogin === false) {
     return (
       <div>
         <Header className="header">
@@ -37,3 +40,5 @@ export default function MyHeader(props) {
     </div>
   )
 }
+
+export default connect((state) => ({ ...state.global }), { loginSuccess })(MyHeader)
