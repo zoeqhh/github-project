@@ -1,7 +1,7 @@
 import { DashBoard, Detail, Login } from './pages'
 
 const routes = [{
-  path: '/dashboard:store',
+  path: '/dashboard',
   title: 'Dashboard',
   component: DashBoard,
   isLogin: true,
